@@ -16,7 +16,7 @@ def preview():
     return result
 
 @app.route('/county_code/<value>', methods=['GET'])
-def icdcode(value):
+def countycode(value):
     print('value: ', value)
     filtered = df[df['county_code'] == value]
     if len(filtered) <= 0:
@@ -25,7 +25,7 @@ def icdcode(value):
         return filtered.to_json(orient="records")
 
 @app.route('/county_code/<value>/sex/<value2>')
-def icdcode2(value, value2):
+def countycode2(value, value2):
     valueNumber = int(value)
     filtered = df[df['county_code'] == valueNumber]
     filtered2 = filtered[filtered['sex'] == value2]
